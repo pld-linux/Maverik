@@ -11,7 +11,7 @@ Source1:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}Demos-%{version}.tar.gz
 Source2:	Maverik-5.1-1.rpm-extras.tgz
 Patch:		Maverik-5.1-1-linux.patch
 URL:		http://hegel.cs.man.ac.uk/systems/Maverik/
-Buildroot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 GNU Maverik is a framework and library for developing VR applications (it is
@@ -82,8 +82,6 @@ find $RPM_BUILD_ROOT/%{_prefix}/src/examples/%{name}-%{version} -type f \
 
 # manual
 install doc/MFS/man3/* $RPM_BUILD_ROOT/%{_mandir}/man3/
-
-
 
 gzip -9nf $RPM_BUILD_ROOT/%{_mandir}/man3/* README.rpm README FAQ VERSIONS \
 	doc/MPG/ps/mpg.ps doc/MFS/ps/mfs.ps

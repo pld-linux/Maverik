@@ -12,6 +12,7 @@ Source0:	http://aig.cs.man.ac.uk/maverik/%{name}-%{version}.tar.gz
 Source1:	http://aig.cs.man.ac.uk/maverik/%{name}Demos-%{version}.tar.gz
 # Source1-md5:	a9c3d7815f8bb02661f3ada6778a1b8e
 Source2:	%{name}-5.1-1.rpm-extras.tgz
+# Source2-md5:	c6bd7b4fa670c32a545939d080862803
 Patch0:		%{name}-5.1-1-linux.patch
 URL:		http://aig.cs.man.ac.uk/maverik/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)

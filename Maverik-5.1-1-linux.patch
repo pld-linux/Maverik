@@ -1,0 +1,12 @@
+diff -uNr Maverik-4.3-pristine/demos/AIGLab/lab.c Maverik-4.3/demos/AIGLab/lab.c
+--- Maverik-4.3-pristine/demos/AIGLab/lab.c	Wed Mar 24 10:14:16 1999
++++ Maverik-4.3/demos/AIGLab/lab.c	Wed Mar 24 10:14:58 1999
+@@ -58,7 +58,7 @@
+   mav_vradModuleInit();
+ 
+   if (!mav_vradRead("aiglab", &vrad, MAV_ID_MATRIX)) exit(1);
+-  mav_vradGamma(&vrad, 0.7);
++  mav_vradGamma(&vrad, 0.35);
+ 
+   sms= mav_SMSNew(mav_SMSClass_objList, mav_objListNew());
+   mav_SMSCallbackObjectAddExec(sms, mav_objectNew(mav_class_vrad, &vrad));

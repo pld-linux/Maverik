@@ -77,7 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/%{_prefix}/src/examples/%{name}-%{version}
 install -d $RPM_BUILD_ROOT/{%{_libdir},%{_includedir}/Maverik,%{_mandir}/man3}
 
-install -s lib/*.so $RPM_BUILD_ROOT/%{_libdir}/
+install lib/*.so $RPM_BUILD_ROOT/%{_libdir}/
 install incl/* $RPM_BUILD_ROOT/%{_includedir}/Maverik/
 
 cp -a examples/* $RPM_BUILD_ROOT/%{_prefix}/src/examples/%{name}-%{version}/

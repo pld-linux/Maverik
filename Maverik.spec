@@ -4,21 +4,21 @@ Version:	4.3
 Release:	2
 Copyright:	GPL
 Group:		Developments/Libraries
+Vendor:		Advanced Interfaces Group
 Source0:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}-%{version}.tar.gz
 Source1:	MaverikDemos-4.3.tar.gz
 Source2:	Maverik-4.3-1.rpm-extras.tgz
 Patch:		Maverik-4.3.1-linux.patch
-
-URL: http://aig.cs.man.ac.uk
-Vendor: Advanced Interfaces Group
+URL:		http://hegel.cs.man.ac.uk/systems/Maverik/
+Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
-GNU Maverik is a framework and library for developing VR applications (it
-is not an end-user application). It provides optimised management of
-graphics and peripheral driving capabilities for a single user. A novel
-feature of GNU MAVERIK is its direct use of the applications own data
-structures. This means significant performance benefits can be achieved
-through application specific optmisations.
+GNU Maverik is a framework and library for developing VR applications (it is
+not an end-user application). It provides optimised management of graphics
+and peripheral driving capabilities for a single user. A novel feature of
+GNU MAVERIK is its direct use of the applications own data structures. This
+means significant performance benefits can be achieved through application
+specific optmisations.
 
 Under GNU/Linux, GNU MAVERIK can use 3DFx VOODOO cards in pairs to drive stereo
 headsets. See the web pages (http://aig.cs.man.ac.uk) for more detail, and
@@ -31,19 +31,18 @@ the MAVERIK library. i.e.
 
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/lib/Maverik/lib
 
-
 %package demos
-Summary: Maverik Demos
-Requires: Maverik = 4.3
-Group: Developments/libraries
+Summary:	Maverik Demos
+Group:		Developments/libraries
+Requires:	%{name} = %{version}
+
 %description demos
 Maverik demos. AIGLab, EscapeCity and LegibleCity.
 
 %prep
-echo "prep"
-%setup
-%setup -T -D -b 1
-%setup -T -D -a 2
+%setup -q
+%setup -q -T -D -b 1
+%setup -q -T -D -a 2
 %patch -p 1
 
 %build
@@ -64,58 +63,38 @@ echo "building "
 %install
 echo "install"
 
-install -d -m 755 -o 0 -g 0 /usr/lib/Maverik/Maverik-4.3/lib
+install -d /usr/lib/Maverik/Maverik-4.3/lib
 (cd lib; cp -pr * /usr/lib/Maverik/Maverik-4.3/lib)
 
 # include
-install -d -m 755 -o 0 -g 0 /usr/lib/Maverik/Maverik-4.3/incl
+install -d /usr/lib/Maverik/Maverik-4.3/incl
 cp -pr incl /usr/lib/Maverik/Maverik-4.3
 
 # examples
 cp -pr examples /usr/lib/Maverik/Maverik-4.3
 
 # bin
-install -d -m 755 -o 0 -g 0 /usr/lib/Maverik/Maverik-4.3/bin
-install -m 755 -o 0 set_mav_vsn /usr/lib/Maverik/Maverik-4.3/bin
+install -d /usr/lib/Maverik/Maverik-4.3/bin
+install set_mav_vsn /usr/lib/Maverik/Maverik-4.3/bin
 
 # src
-install -d -m 755 -o 0 -g 0 /usr/lib/Maverik/Maverik-4.3/src
+install -d /usr/lib/Maverik/Maverik-4.3/src
 cp -pr src /usr/lib/Maverik/Maverik-4.3
 
 # demos (stub)
-install -d -m 755 -o 0 -g 0 /usr/lib/Maverik/Maverik-4.3/demos
+install -d /usr/lib/Maverik/Maverik-4.3/demos
 cp -pr demos /usr/lib/Maverik/Maverik-4.3
 
 # misc for remake
-install -m 755 -o 0 setup /usr/lib/Maverik/Maverik-4.3/setup
-install -m 755 -o 0 Makefile /usr/lib/Maverik/Maverik-4.3/Makefile
+install setup /usr/lib/Maverik/Maverik-4.3/setup
+install Makefile /usr/lib/Maverik/Maverik-4.3/Makefile
 
 # manual
-install -d -m 755 -o 0 -g 0 /usr/lib/Maverik/Maverik-4.3/man/man3
-#install -m 644 -o 0 Maverik.3 /usr/lib/Maverik/Maverik-4.3/man/man3
+install -d /usr/lib/Maverik/Maverik-4.3/man/man3
+#install Maverik.3 /usr/lib/Maverik/Maverik-4.3/man/man3
 cp -pr doc/MFS/man3 /usr/lib/Maverik/Maverik-4.3/man/
-install -m 644 -o 0 set_mav_vsn.3 /usr/lib/Maverik/Maverik-4.3/man/man3
+install  set_mav_vsn.3 /usr/lib/Maverik/Maverik-4.3/man/man3
 
-
-%files
-
-#%docdir /usr/lib/Maverik/Maverik-4.3/man
-%doc README.rpm README INSTALL FAQ VERSIONS COPYING doc/MPG/ps/mpg.ps
-
-%dir /usr/lib/Maverik/Maverik-4.3
-/usr/lib/Maverik/Maverik-4.3/bin
-/usr/lib/Maverik/Maverik-4.3/lib
-/usr/lib/Maverik/Maverik-4.3/incl
-/usr/lib/Maverik/Maverik-4.3/man
-/usr/lib/Maverik/Maverik-4.3/examples
-%dir /usr/lib/Maverik/Maverik-4.3/demos
-/usr/lib/Maverik/Maverik-4.3/demos/Makefile
-/usr/lib/Maverik/Maverik-4.3/demos/README
-
-%files demos
-/usr/lib/Maverik/Maverik-4.3/demos/AIGLab
-/usr/lib/Maverik/Maverik-4.3/demos/EscapeCity
-/usr/lib/Maverik/Maverik-4.3/demos/LegibleCity
 
 %post 
 /usr/lib/Maverik/Maverik-4.3/bin/set_mav_vsn -i 4.3
@@ -140,3 +119,22 @@ then
 fi
 rm -f /tmp/set_mav_vsn
 fi
+
+%files
+#%docdir /usr/lib/Maverik/Maverik-4.3/man
+%doc README.rpm README INSTALL FAQ VERSIONS COPYING doc/MPG/ps/mpg.ps
+
+%dir /usr/lib/Maverik/Maverik-4.3
+/usr/lib/Maverik/Maverik-4.3/bin
+/usr/lib/Maverik/Maverik-4.3/lib
+/usr/lib/Maverik/Maverik-4.3/incl
+/usr/lib/Maverik/Maverik-4.3/man
+/usr/lib/Maverik/Maverik-4.3/examples
+%dir /usr/lib/Maverik/Maverik-4.3/demos
+/usr/lib/Maverik/Maverik-4.3/demos/Makefile
+/usr/lib/Maverik/Maverik-4.3/demos/README
+
+%files demos
+/usr/lib/Maverik/Maverik-4.3/demos/AIGLab
+/usr/lib/Maverik/Maverik-4.3/demos/EscapeCity
+/usr/lib/Maverik/Maverik-4.3/demos/LegibleCity

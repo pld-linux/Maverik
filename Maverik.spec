@@ -3,7 +3,7 @@ Name:		Maverik
 Version:	5.1
 Release:	1
 Copyright:	GPL
-Group:		Developments/Libraries
+Group:		Development/Libraries
 Vendor:		Advanced Interfaces Group
 Source0:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}-%{version}.tar.gz
 Source1:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}Demos-%{version}.tar.gz
@@ -27,7 +27,7 @@ examples of applications written using GNU MAVERIK.
 
 %package demos
 Summary:	Maverik Demos
-Group:		Developments/libraries
+Group:		Development/Libraries
 Requires:	%{name} = %{version}
 
 %description demos

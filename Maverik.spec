@@ -5,12 +5,13 @@ Version:	5.2
 Release:	1
 License:	GPL
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Source0:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}-%{version}.tar.gz
 Source1:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}Demos-%{version}.tar.gz
-Source2:	Maverik-5.1-1.rpm-extras.tgz
-Patch0:		Maverik-5.1-1-linux.patch
+Source2:	%{name}-5.1-1.rpm-extras.tgz
+Patch0:		%{name}-5.1-1-linux.patch
 URL:		http://hegel.cs.man.ac.uk/systems/Maverik/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -33,6 +34,7 @@ aplikacji u¿ywaj±cej Maverika.
 Summary:	Maverik Demos
 Summary(pl):	Dema Maverika
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}

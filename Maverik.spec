@@ -7,7 +7,6 @@ License:	GPL
 Group:		Development/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
-Vendor:		Advanced Interfaces Group
 Source0:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}-%{version}.tar.gz
 Source1:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}Demos-%{version}.tar.gz
 Source2:	Maverik-5.1-1.rpm-extras.tgz

@@ -5,12 +5,19 @@ Version:	5.2
 Release:	1
 License:	GPL
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
+Group(cs):	VЩvojovИ prostЬedky/Knihovny
+Group(da):	Udvikling/Biblioteker
+Group(de):	Entwicklung/Bibliotheken
 Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
+Group(it):	Sviluppo/Librerie
+Group(ja):	Ё╚х╞/╔И╔╓╔ж╔И╔Й
+Group(no):	Utvikling/Bibliotek
 Group(pl):	Programowanie/Biblioteki
 Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(pt):	Desenvolvimento/Bibliotecas
 Group(ru):	Разработка/Библиотеки
+Group(sv):	Utveckling/Bibliotek
 Group(uk):	Розробка/Б╕бл╕отеки
 Source0:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}-%{version}.tar.gz
 Source1:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}Demos-%{version}.tar.gz
@@ -38,25 +45,30 @@ aplikacji u©ywaj╠cej Maverika.
 Summary:	Maverik Demos
 Summary(pl):	Dema Maverika
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
+Group(cs):	VЩvojovИ prostЬedky/Knihovny
+Group(da):	Udvikling/Biblioteker
+Group(de):	Entwicklung/Bibliotheken
 Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
+Group(it):	Sviluppo/Librerie
+Group(ja):	Ё╚х╞/╔И╔╓╔ж╔И╔Й
+Group(no):	Utvikling/Bibliotek
 Group(pl):	Programowanie/Biblioteki
 Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(pt):	Desenvolvimento/Bibliotecas
 Group(ru):	Разработка/Библиотеки
+Group(sv):	Utveckling/Bibliotek
 Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description demos
 Maverik demos. AIGLab, EscapeCity and LegibleCity.
 
-%description -l pl demos
-Dema Maverika. AIGLab, EscapeCity i LegibleCity.
+%description demos -l pl
+Dema Maverika: AIGLab, EscapeCity i LegibleCity.
 
 %prep
-%setup -q
-%setup -q -T -D -b 1
-%setup -q -T -D -a 2
+%setup -q -b1 -a2
 %patch -p 1
 
 for i in doc/MFS/man3/*; do
@@ -82,17 +94,14 @@ done
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT/%{_examplesdir}/%{name}-%{version}
-install -d $RPM_BUILD_ROOT/{%{_libdir},%{_includedir}/Maverik,%{_mandir}/man3}
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir}/Maverik,%{_mandir}/man3}
 
-install lib/*.so $RPM_BUILD_ROOT/%{_libdir}/
-install incl/* $RPM_BUILD_ROOT/%{_includedir}/Maverik/
+install lib/*.so $RPM_BUILD_ROOT%{_libdir}
+install incl/* $RPM_BUILD_ROOT%{_includedir}/Maverik
 
-cp -a examples/* $RPM_BUILD_ROOT/%{_examplesdir}/%{name}-%{version}/
-cp -a demos $RPM_BUILD_ROOT/%{_examplesdir}/%{name}-%{version}/
-
-find $RPM_BUILD_ROOT/%{_examplesdir}/%{name}-%{version} -type f \
-	-exec strip --strip-unneeded {} \; || :
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -a demos $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 # manual
 install doc/MFS/man3/* $RPM_BUILD_ROOT/%{_mandir}/man3/
@@ -106,17 +115,16 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {README.rpm,README,FAQ,VERSIONS}.gz
 %doc doc/MPG/ps/mpg.ps.gz doc/MFS/ps/mfs.ps.gz doc/MFS/html
-%attr(755, root, root) %{_libdir}/*.so
-%dir %{_includedir}/Maverik
-%attr(644, root, root) %{_includedir}/Maverik/*
-%attr(644, root, root) %{_mandir}/man3/*
-%dir %{_prefix}/src/examples/%{name}-%{version}
-%{_prefix}/src/examples/%{name}-%{version}/MPG
-%{_prefix}/src/examples/%{name}-%{version}/kernel
-%{_prefix}/src/examples/%{name}-%{version}/misc
-%{_prefix}/src/examples/%{name}-%{version}/Makefile
-%{_prefix}/src/examples/%{name}-%{version}/README
+%attr(755,root,root) %{_libdir}/*.so
+%{_includedir}/Maverik
+%attr(644,root,root) %{_mandir}/man3/*
+%dir %{_examplesdir}/%{name}-%{version}
+%{_examplesdir}/%{name}-%{version}/MPG
+%{_examplesdir}/%{name}-%{version}/kernel
+%{_examplesdir}/%{name}-%{version}/misc
+%{_examplesdir}/%{name}-%{version}/Makefile
+%{_examplesdir}/%{name}-%{version}/README
 
 %files demos
 %defattr(644,root,root,755)
-%{_prefix}/src/examples/%{name}-%{version}/demos
+%{_examplesdir}/%{name}-%{version}/demos

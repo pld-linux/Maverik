@@ -1,12 +1,12 @@
 Summary:	A vr micro-Kernel
 Name:		Maverik
-Version:	4.3
-Release:	2
+Version:	5.0
+Release:	1
 Copyright:	GPL
 Group:		Developments/Libraries
 Vendor:		Advanced Interfaces Group
 Source0:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}-%{version}.tar.gz
-Source1:	MaverikDemos-4.3.tar.gz
+Source1:	MaverikDemos-5.0.tar.gz
 Source2:	Maverik-4.3-1.rpm-extras.tgz
 Patch:		Maverik-4.3.1-linux.patch
 URL:		http://hegel.cs.man.ac.uk/systems/Maverik/

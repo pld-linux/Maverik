@@ -1,14 +1,13 @@
-Summary:	A vr micro-Kernel
+Summary:	A VR micro-Kernel
 Summary(pl):	Mikroj±dro VR
 Name:		Maverik
 Version:	6.2
 Release:	1
 License:	GPL
 Group:		Development/Libraries
-# download page: http://aig.cs.man.ac.uk/maverik/download.php
+#Source0Download: http://aig.cs.man.ac.uk/maverik/download.php
 Source0:	http://aig.cs.man.ac.uk/maverik/maverik-%{version}.tar.gz
 # Source0-md5:	b15b290f5a0c8c6c21a2f5c47ad8be37
-# version 6.2: http://aig.cs.man.ac.uk/maverik/maverik-demos-6.2.tar.gz
 Source1:	http://aig.cs.man.ac.uk/maverik/maverik-demos-%{version}.tar.gz
 # Source1-md5:	cb31b5e61c6c390edb564c61a96e3eaf
 Source2:	%{name}-5.1-1.rpm-extras.tgz
@@ -36,7 +35,7 @@ aplikacji u¿ywaj±cej Maverika.
 Summary:	Maverik Demos
 Summary(pl):	Dema Maverika
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description demos
 Maverik demos. AIGLab, EscapeCity and LegibleCity.
@@ -58,19 +57,22 @@ done
 #export OS_TYPE="Linux"
 #export MAV_HOME=`pwd`
 #source setup_env
-( ./setup --VRML97 --MESAPATH=%{_prefix}/X11R6 ; make ; make clean)
+./setup \
+	--VRML97 \
+	--MESAPATH=%{_prefix}/X11R6
+%{__make}
+%{__make} clean
 
 #export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${RPM_BUILD_DIR}/Maverik-3.0b4/lib/Linux
-#(cd examples; make)
+#%{__make} -C examples
 
 # dont make examples they need incl and lib paths setting, and those
 # are different between our build and the installed build. Fix that
 # one day. For now a useful test for the user to try.
-#(cd examples ; make ; make clean)
+#%{__make} -C examples ; %{__make} -C examples clean
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir}/Maverik,%{_mandir}/man3}
 
@@ -92,7 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc doc/MPG/ps/mpg.ps doc/MFS/ps/mfs.ps doc/MFS/html
 %attr(755,root,root) %{_libdir}/*.so
 %{_includedir}/Maverik
-%attr(644,root,root) %{_mandir}/man3/*
+%{_mandir}/man3/*
 %dir %{_examplesdir}/%{name}-%{version}
 %{_examplesdir}/%{name}-%{version}/MPG
 %{_examplesdir}/%{name}-%{version}/kernel

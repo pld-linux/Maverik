@@ -1,16 +1,16 @@
 Summary:	A vr micro-Kernel
 Summary(pl):	Mikroj±dro VR
 Name:		Maverik
-Version:	5.2
+Version:	6.2
 Release:	1
 License:	GPL
 Group:		Development/Libraries
 # download page: http://aig.cs.man.ac.uk/maverik/download.php
-Source0:	http://aig.cs.man.ac.uk/maverik/%{name}-%{version}.tar.gz
-# Source0-md5:	e7cbd5f8f84674d21b268bd7eea22874
+Source0:	http://aig.cs.man.ac.uk/maverik/maverik-%{version}.tar.gz
+# Source0-md5:	b15b290f5a0c8c6c21a2f5c47ad8be37
 # version 6.2: http://aig.cs.man.ac.uk/maverik/maverik-demos-6.2.tar.gz
-Source1:	http://aig.cs.man.ac.uk/maverik/%{name}Demos-%{version}.tar.gz
-# Source1-md5:	a9c3d7815f8bb02661f3ada6778a1b8e
+Source1:	http://aig.cs.man.ac.uk/maverik/maverik-demos-%{version}.tar.gz
+# Source1-md5:	cb31b5e61c6c390edb564c61a96e3eaf
 Source2:	%{name}-5.1-1.rpm-extras.tgz
 # Source2-md5:	c6bd7b4fa670c32a545939d080862803
 Patch0:		%{name}-5.1-1-linux.patch
@@ -45,7 +45,7 @@ Maverik demos. AIGLab, EscapeCity and LegibleCity.
 Dema Maverika: AIGLab, EscapeCity i LegibleCity.
 
 %prep
-%setup -q -b1 -a2
+%setup -q -n maverik-%{version} -b1 -a2
 %patch -p 1
 
 for i in doc/MFS/man3/*; do

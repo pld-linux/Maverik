@@ -1,6 +1,7 @@
 Summary:	A vr micro-Kernel
+Summary(pl):	VR micro-J±dro
 Name:		Maverik
-Version:	5.1
+Version:	5.2
 Release:	1
 Copyright:	GPL
 Group:		Development/Libraries
@@ -20,18 +21,23 @@ GNU MAVERIK is its direct use of the applications own data structures. This
 means significant performance benefits can be achieved through application
 specific optmisations.
 
-Under GNU/Linux, GNU MAVERIK can use 3DFx VOODOO cards in pairs to drive stereo
-headsets. See the web pages (http://aig.cs.man.ac.uk) for more detail, and
-examples of applications written using GNU MAVERIK.
-
+%description -l pl
+GNU Maverik jest ¶rodowiskiem przeznaczonym do rozwoju aplikacji VR. Dostarcza
+zoptymalizowane zarz±dzanie grafik± itp. Nowacj± w GNY Mavericu jest
+bezpo¶rednie u¿ywanie struktur danych aplikacji przez co mo¿lie jest znaczne
+przyspieszenie dzia³ania przez optymalizajê aplikacji u¿ywaj±cej Maverika.
 
 %package demos
 Summary:	Maverik Demos
+Summary(pl):	Dema Maverika
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
 
 %description demos
 Maverik demos. AIGLab, EscapeCity and LegibleCity.
+
+%description -l pl demos
+Dema Maverika. AIGLab, EscapeCity i LegibleCity.
 
 %prep
 %setup -q

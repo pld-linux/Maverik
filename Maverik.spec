@@ -5,11 +5,13 @@ Version:	5.2
 Release:	1
 License:	GPL
 Group:		Development/Libraries
-Source0:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}-%{version}.tar.gz
-Source1:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}Demos-%{version}.tar.gz
+# download page: http://aig.cs.man.ac.uk/maverik/download.php
+Source0:	http://aig.cs.man.ac.uk/maverik/%{name}-%{version}.tar.gz
+# version 6.2: http://aig.cs.man.ac.uk/maverik/maverik-demos-6.2.tar.gz
+Source1:	http://aig.cs.man.ac.uk/maverik/%{name}Demos-%{version}.tar.gz
 Source2:	%{name}-5.1-1.rpm-extras.tgz
 Patch0:		%{name}-5.1-1-linux.patch
-URL:		http://hegel.cs.man.ac.uk/systems/Maverik/
+URL:		http://aig.cs.man.ac.uk/maverik/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -76,17 +78,15 @@ cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -a demos $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 # manual
-install doc/MFS/man3/* $RPM_BUILD_ROOT/%{_mandir}/man3/
-
-gzip -9nf README.rpm README FAQ VERSIONS doc/MPG/ps/mpg.ps doc/MFS/ps/mfs.ps
+install doc/MFS/man3/* $RPM_BUILD_ROOT%{_mandir}/man3/
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {README.rpm,README,FAQ,VERSIONS}.gz
-%doc doc/MPG/ps/mpg.ps.gz doc/MFS/ps/mfs.ps.gz doc/MFS/html
+%doc README.rpm README FAQ VERSIONS
+%doc doc/MPG/ps/mpg.ps doc/MFS/ps/mfs.ps doc/MFS/html
 %attr(755,root,root) %{_libdir}/*.so
 %{_includedir}/Maverik
 %attr(644,root,root) %{_mandir}/man3/*

@@ -1,13 +1,17 @@
 Summary:	A vr micro-Kernel
-Summary(pl):	VR micro-J±dro
+Summary(pl):	Mikroj±dro VR
 Name:		Maverik
 Version:	5.2
 Release:	1
 License:	GPL
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Ú¡⁄“¡¬œ‘À¡/‚…¬Ã…œ‘≈À…
+Group(uk):	Úœ⁄“œ¬À¡/‚¶¬Ã¶œ‘≈À…
 Source0:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}-%{version}.tar.gz
 Source1:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}Demos-%{version}.tar.gz
 Source2:	%{name}-5.1-1.rpm-extras.tgz
@@ -25,9 +29,9 @@ achieved through application specific optmisations.
 
 %description -l pl
 GNU Maverik jest ∂rodowiskiem przeznaczonym do rozwoju aplikacji VR.
-Dostarcza zoptymalizowane zarz±dzanie grafik± itp. Nowacj± w GNY
+Dostarcza zoptymalizowane zarz±dzanie grafik± itp. Nowo∂ci± w GNU
 Mavericu jest bezpo∂rednie uøywanie struktur danych aplikacji przez co
-moølie jest znaczne przyspieszenie dzia≥ania przez optymalizajÍ
+moøliwe jest znaczne przyspieszenie dzia≥ania przez optymalizajÍ
 aplikacji uøywaj±cej Maverika.
 
 %package demos
@@ -35,8 +39,12 @@ Summary:	Maverik Demos
 Summary(pl):	Dema Maverika
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Ú¡⁄“¡¬œ‘À¡/‚…¬Ã…œ‘≈À…
+Group(uk):	Úœ⁄“œ¬À¡/‚¶¬Ã¶œ‘≈À…
 Requires:	%{name} = %{version}
 
 %description demos
@@ -74,23 +82,22 @@ done
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT/%{_prefix}/src/examples/%{name}-%{version}
+install -d $RPM_BUILD_ROOT/%{_examplesdir}/%{name}-%{version}
 install -d $RPM_BUILD_ROOT/{%{_libdir},%{_includedir}/Maverik,%{_mandir}/man3}
 
 install lib/*.so $RPM_BUILD_ROOT/%{_libdir}/
 install incl/* $RPM_BUILD_ROOT/%{_includedir}/Maverik/
 
-cp -a examples/* $RPM_BUILD_ROOT/%{_prefix}/src/examples/%{name}-%{version}/
-cp -a demos $RPM_BUILD_ROOT/%{_prefix}/src/examples/%{name}-%{version}/
+cp -a examples/* $RPM_BUILD_ROOT/%{_examplesdir}/%{name}-%{version}/
+cp -a demos $RPM_BUILD_ROOT/%{_examplesdir}/%{name}-%{version}/
 
-find $RPM_BUILD_ROOT/%{_prefix}/src/examples/%{name}-%{version} -type f \
+find $RPM_BUILD_ROOT/%{_examplesdir}/%{name}-%{version} -type f \
 	-exec strip --strip-unneeded {} \; || :
 
 # manual
 install doc/MFS/man3/* $RPM_BUILD_ROOT/%{_mandir}/man3/
 
-gzip -9nf $RPM_BUILD_ROOT/%{_mandir}/man3/* README.rpm README FAQ VERSIONS \
-	doc/MPG/ps/mpg.ps doc/MFS/ps/mfs.ps
+gzip -9nf README.rpm README FAQ VERSIONS doc/MPG/ps/mpg.ps doc/MFS/ps/mfs.ps
 
 %clean
 rm -rf $RPM_BUILD_ROOT

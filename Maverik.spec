@@ -5,20 +5,6 @@ Version:	5.2
 Release:	1
 License:	GPL
 Group:		Development/Libraries
-Group(cs):	VЩvojovИ prostЬedky/Knihovny
-Group(da):	Udvikling/Biblioteker
-Group(de):	Entwicklung/Bibliotheken
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(it):	Sviluppo/Librerie
-Group(ja):	Ё╚х╞/╔И╔╓╔ж╔И╔Й
-Group(no):	Utvikling/Bibliotek
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(pt):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(sv):	Utveckling/Bibliotek
-Group(uk):	Розробка/Б╕бл╕отеки
 Source0:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}-%{version}.tar.gz
 Source1:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}Demos-%{version}.tar.gz
 Source2:	%{name}-5.1-1.rpm-extras.tgz
@@ -45,20 +31,6 @@ aplikacji u©ywaj╠cej Maverika.
 Summary:	Maverik Demos
 Summary(pl):	Dema Maverika
 Group:		Development/Libraries
-Group(cs):	VЩvojovИ prostЬedky/Knihovny
-Group(da):	Udvikling/Biblioteker
-Group(de):	Entwicklung/Bibliotheken
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(it):	Sviluppo/Librerie
-Group(ja):	Ё╚х╞/╔И╔╓╔ж╔И╔Й
-Group(no):	Utvikling/Bibliotek
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(pt):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(sv):	Utveckling/Bibliotek
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description demos

@@ -103,10 +103,3 @@ rm -rf $RPM_BUILD_ROOT
 %files demos
 %defattr(-,root,root,755)
 %{_prefix}/src/examples/%{name}-%{version}/demos
-
-%changelog
-* Thu Jul 08 1999 Jan Rêkorajski <baggins@pld.org.pl>
-- FHS 2.0
-- buildroot
-- attr macros
-- massive cleanup

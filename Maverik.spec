@@ -29,7 +29,7 @@ Examples
 To run the examples, you will need to set the LD_LIBRARY_PATH to pick up
 the MAVERIK library. i.e.
 
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/lib/Maverik/lib
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:%{_libdir}/Maverik/lib
 
 %package demos
 Summary:	Maverik Demos
@@ -63,57 +63,57 @@ echo "building "
 %install
 echo "install"
 
-install -d /usr/lib/Maverik/Maverik-4.3/lib
-(cd lib; cp -pr * /usr/lib/Maverik/Maverik-4.3/lib)
+install -d %{_libdir}/Maverik/Maverik-4.3/lib
+(cd lib; cp -pr * %{_libdir}/Maverik/Maverik-4.3/lib)
 
 # include
-install -d /usr/lib/Maverik/Maverik-4.3/incl
-cp -pr incl /usr/lib/Maverik/Maverik-4.3
+install -d %{_libdir}/Maverik/Maverik-4.3/incl
+cp -pr incl %{_libdir}/Maverik/Maverik-4.3
 
 # examples
-cp -pr examples /usr/lib/Maverik/Maverik-4.3
+cp -pr examples %{_libdir}/Maverik/Maverik-4.3
 
 # bin
-install -d /usr/lib/Maverik/Maverik-4.3/bin
-install set_mav_vsn /usr/lib/Maverik/Maverik-4.3/bin
+install -d %{_libdir}/Maverik/Maverik-4.3/bin
+install set_mav_vsn %{_libdir}/Maverik/Maverik-4.3/bin
 
 # src
-install -d /usr/lib/Maverik/Maverik-4.3/src
-cp -pr src /usr/lib/Maverik/Maverik-4.3
+install -d %{_libdir}/Maverik/Maverik-4.3/src
+cp -pr src %{_libdir}/Maverik/Maverik-4.3
 
 # demos (stub)
-install -d /usr/lib/Maverik/Maverik-4.3/demos
-cp -pr demos /usr/lib/Maverik/Maverik-4.3
+install -d %{_libdir}/Maverik/Maverik-4.3/demos
+cp -pr demos %{_libdir}/Maverik/Maverik-4.3
 
 # misc for remake
-install setup /usr/lib/Maverik/Maverik-4.3/setup
-install Makefile /usr/lib/Maverik/Maverik-4.3/Makefile
+install setup %{_libdir}/Maverik/Maverik-4.3/setup
+install Makefile %{_libdir}/Maverik/Maverik-4.3/Makefile
 
 # manual
-install -d /usr/lib/Maverik/Maverik-4.3/man/man3
-#install Maverik.3 /usr/lib/Maverik/Maverik-4.3/man/man3
-cp -pr doc/MFS/man3 /usr/lib/Maverik/Maverik-4.3/man/
-install  set_mav_vsn.3 /usr/lib/Maverik/Maverik-4.3/man/man3
+install -d %{_libdir}/Maverik/Maverik-4.3/man/man3
+#install Maverik.3 %{_libdir}/Maverik/Maverik-4.3/man/man3
+cp -pr doc/MFS/man3 %{_libdir}/Maverik/Maverik-4.3/man/
+install  set_mav_vsn.3 %{_libdir}/Maverik/Maverik-4.3/man/man3
 
 
 %post 
-/usr/lib/Maverik/Maverik-4.3/bin/set_mav_vsn -i 4.3
+%{_libdir}/Maverik/Maverik-4.3/bin/set_mav_vsn -i 4.3
 echo ""
 echo "Examples"
 echo "----------"
 echo "To run the examples, you will need to set the LD_LIBRARY_PATH to pick up"
 echo "the MAVERIK library. i.e. (using the bash shell)"
 echo ""
-echo "      export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/lib/Maverik/lib"
+echo "      export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:%{_libdir}/Maverik/lib"
 echo ""
 %preun
-/usr/lib/Maverik/Maverik-4.3/bin/set_mav_vsn -e 4.3
-cp /usr/lib/Maverik/Maverik-4.3/bin/set_mav_vsn /tmp
+%{_libdir}/Maverik/Maverik-4.3/bin/set_mav_vsn -e 4.3
+cp %{_libdir}/Maverik/Maverik-4.3/bin/set_mav_vsn /tmp
 
 $postun
 if [ $1 != 0 ] ;
 then
-if [ ! -e /usr/lib/Maverik/incl ];
+if [ ! -e %{_libdir}/Maverik/incl ];
 then
 	/tmp/set_mav_vsn -i newest
 fi
@@ -121,20 +121,20 @@ rm -f /tmp/set_mav_vsn
 fi
 
 %files
-#%docdir /usr/lib/Maverik/Maverik-4.3/man
+#%docdir %{_libdir}/Maverik/Maverik-4.3/man
 %doc README.rpm README INSTALL FAQ VERSIONS COPYING doc/MPG/ps/mpg.ps
 
-%dir /usr/lib/Maverik/Maverik-4.3
-/usr/lib/Maverik/Maverik-4.3/bin
-/usr/lib/Maverik/Maverik-4.3/lib
-/usr/lib/Maverik/Maverik-4.3/incl
-/usr/lib/Maverik/Maverik-4.3/man
-/usr/lib/Maverik/Maverik-4.3/examples
-%dir /usr/lib/Maverik/Maverik-4.3/demos
-/usr/lib/Maverik/Maverik-4.3/demos/Makefile
-/usr/lib/Maverik/Maverik-4.3/demos/README
+%dir %{_libdir}/Maverik/Maverik-4.3
+%{_libdir}/Maverik/Maverik-4.3/bin
+%{_libdir}/Maverik/Maverik-4.3/lib
+%{_libdir}/Maverik/Maverik-4.3/incl
+%{_libdir}/Maverik/Maverik-4.3/man
+%{_libdir}/Maverik/Maverik-4.3/examples
+%dir %{_libdir}/Maverik/Maverik-4.3/demos
+%{_libdir}/Maverik/Maverik-4.3/demos/Makefile
+%{_libdir}/Maverik/Maverik-4.3/demos/README
 
 %files demos
-/usr/lib/Maverik/Maverik-4.3/demos/AIGLab
-/usr/lib/Maverik/Maverik-4.3/demos/EscapeCity
-/usr/lib/Maverik/Maverik-4.3/demos/LegibleCity
+%{_libdir}/Maverik/Maverik-4.3/demos/AIGLab
+%{_libdir}/Maverik/Maverik-4.3/demos/EscapeCity
+%{_libdir}/Maverik/Maverik-4.3/demos/LegibleCity

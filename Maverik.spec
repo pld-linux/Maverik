@@ -24,7 +24,7 @@ achieved through application specific optmisations.
 GNU Maverik jest ¶rodowiskiem przeznaczonym do rozwoju aplikacji VR.
 Dostarcza zoptymalizowane zarz±dzanie grafik± itp. Nowo¶ci± w GNU
 Mavericu jest bezpo¶rednie u¿ywanie struktur danych aplikacji przez co
-mo¿liwe jest znaczne przyspieszenie dzia³ania przez optymalizajê
+mo¿liwe jest znaczne przyspieszenie dzia³ania przez optymalizacjê
 aplikacji u¿ywaj±cej Maverika.
 
 %package demos

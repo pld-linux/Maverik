@@ -3,34 +3,39 @@ Summary(pl):	VR micro-J±dro
 Name:		Maverik
 Version:	5.2
 Release:	1
-Copyright:	GPL
+License:	GPL
 Group:		Development/Libraries
+Group(fr):	Development/Librairies
+Group(pl):	Programowanie/Biblioteki
 Vendor:		Advanced Interfaces Group
 Source0:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}-%{version}.tar.gz
 Source1:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}Demos-%{version}.tar.gz
 Source2:	Maverik-5.1-1.rpm-extras.tgz
-Patch:		Maverik-5.1-1-linux.patch
+Patch0:		Maverik-5.1-1-linux.patch
 URL:		http://hegel.cs.man.ac.uk/systems/Maverik/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-GNU Maverik is a framework and library for developing VR applications (it is
-not an end-user application). It provides optimised management of graphics
-and peripheral driving capabilities for a single user. A novel feature of
-GNU MAVERIK is its direct use of the applications own data structures. This
-means significant performance benefits can be achieved through application
-specific optmisations.
+GNU Maverik is a framework and library for developing VR applications
+(it is not an end-user application). It provides optimised management
+of graphics and peripheral driving capabilities for a single user. A
+novel feature of GNU MAVERIK is its direct use of the applications own
+data structures. This means significant performance benefits can be
+achieved through application specific optmisations.
 
 %description -l pl
-GNU Maverik jest ¶rodowiskiem przeznaczonym do rozwoju aplikacji VR. Dostarcza
-zoptymalizowane zarz±dzanie grafik± itp. Nowacj± w GNY Mavericu jest
-bezpo¶rednie u¿ywanie struktur danych aplikacji przez co mo¿lie jest znaczne
-przyspieszenie dzia³ania przez optymalizajê aplikacji u¿ywaj±cej Maverika.
+GNU Maverik jest ¶rodowiskiem przeznaczonym do rozwoju aplikacji VR.
+Dostarcza zoptymalizowane zarz±dzanie grafik± itp. Nowacj± w GNY
+Mavericu jest bezpo¶rednie u¿ywanie struktur danych aplikacji przez co
+mo¿lie jest znaczne przyspieszenie dzia³ania przez optymalizajê
+aplikacji u¿ywaj±cej Maverika.
 
 %package demos
 Summary:	Maverik Demos
 Summary(pl):	Dema Maverika
 Group:		Development/Libraries
+Group(fr):	Development/Librairies
+Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
 
 %description demos
@@ -55,7 +60,7 @@ done
 #export OS_TYPE="Linux"
 #export MAV_HOME=`pwd`
 #source setup_env
-( ./setup --VRML97 --MESAPATH=/usr/X11R6 ; make ; make clean)
+( ./setup --VRML97 --MESAPATH=%{_prefix}/X11R6 ; make ; make clean)
 
 #export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${RPM_BUILD_DIR}/Maverik-3.0b4/lib/Linux
 #(cd examples; make)
@@ -90,7 +95,7 @@ gzip -9nf $RPM_BUILD_ROOT/%{_mandir}/man3/* README.rpm README FAQ VERSIONS \
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(-,root,root,755)
+%defattr(644,root,root,755)
 %doc {README.rpm,README,FAQ,VERSIONS}.gz
 %doc doc/MPG/ps/mpg.ps.gz doc/MFS/ps/mfs.ps.gz doc/MFS/html
 %attr(755, root, root) %{_libdir}/*.so
@@ -105,5 +110,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/src/examples/%{name}-%{version}/README
 
 %files demos
-%defattr(-,root,root,755)
+%defattr(644,root,root,755)
 %{_prefix}/src/examples/%{name}-%{version}/demos

@@ -7,8 +7,10 @@ License:	GPL
 Group:		Development/Libraries
 # download page: http://aig.cs.man.ac.uk/maverik/download.php
 Source0:	http://aig.cs.man.ac.uk/maverik/%{name}-%{version}.tar.gz
+# Source0-md5:	e7cbd5f8f84674d21b268bd7eea22874
 # version 6.2: http://aig.cs.man.ac.uk/maverik/maverik-demos-6.2.tar.gz
 Source1:	http://aig.cs.man.ac.uk/maverik/%{name}Demos-%{version}.tar.gz
+# Source1-md5:	a9c3d7815f8bb02661f3ada6778a1b8e
 Source2:	%{name}-5.1-1.rpm-extras.tgz
 Patch0:		%{name}-5.1-1-linux.patch
 URL:		http://aig.cs.man.ac.uk/maverik/

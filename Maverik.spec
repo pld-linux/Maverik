@@ -4,7 +4,7 @@ Version:	4.3
 Release:	2
 Copyright:	GPL
 Group:		Developments/Libraries
-Source1:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}-%{version}.tar.gz
+Source0:	ftp://aig.cs.man.ac.uk/pub/aig/Maverik/%{name}-%{version}.tar.gz
 Source1:	MaverikDemos-4.3.tar.gz
 Source2:	Maverik-4.3-1.rpm-extras.tgz
 Patch:		Maverik-4.3.1-linux.patch

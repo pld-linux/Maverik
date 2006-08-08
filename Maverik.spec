@@ -45,7 +45,7 @@ Dema Maverika: AIGLab, EscapeCity i LegibleCity.
 
 %prep
 %setup -q -n maverik-%{version} -b1 -a2
-%patch -p 1
+%patch0 -p 1
 
 for i in doc/MFS/man3/*; do
 	if [ -L $i ]; then

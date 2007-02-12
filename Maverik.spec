@@ -1,5 +1,5 @@
 Summary:	A VR micro-Kernel
-Summary(pl):	Mikroj±dro VR
+Summary(pl.UTF-8):   MikrojÄ…dro VR
 Name:		Maverik
 Version:	6.2
 Release:	1
@@ -24,23 +24,23 @@ novel feature of GNU MAVERIK is its direct use of the applications own
 data structures. This means significant performance benefits can be
 achieved through application specific optmisations.
 
-%description -l pl
-GNU Maverik jest ¶rodowiskiem przeznaczonym do rozwoju aplikacji VR.
-Dostarcza zoptymalizowane zarz±dzanie grafik± itp. Nowo¶ci± w GNU
-Mavericu jest bezpo¶rednie u¿ywanie struktur danych aplikacji przez co
-mo¿liwe jest znaczne przyspieszenie dzia³ania przez optymalizacjê
-aplikacji u¿ywaj±cej Maverika.
+%description -l pl.UTF-8
+GNU Maverik jest Å›rodowiskiem przeznaczonym do rozwoju aplikacji VR.
+Dostarcza zoptymalizowane zarzÄ…dzanie grafikÄ… itp. NowoÅ›ciÄ… w GNU
+Mavericu jest bezpoÅ›rednie uÅ¼ywanie struktur danych aplikacji przez co
+moÅ¼liwe jest znaczne przyspieszenie dziaÅ‚ania przez optymalizacjÄ™
+aplikacji uÅ¼ywajÄ…cej Maverika.
 
 %package demos
 Summary:	Maverik Demos
-Summary(pl):	Dema Maverika
+Summary(pl.UTF-8):   Dema Maverika
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description demos
 Maverik demos. AIGLab, EscapeCity and LegibleCity.
 
-%description demos -l pl
+%description demos -l pl.UTF-8
 Dema Maverika: AIGLab, EscapeCity i LegibleCity.
 
 %prep

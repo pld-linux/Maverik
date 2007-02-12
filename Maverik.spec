@@ -1,5 +1,5 @@
 Summary:	A VR micro-Kernel
-Summary(pl.UTF-8):   Mikrojądro VR
+Summary(pl.UTF-8):	Mikrojądro VR
 Name:		Maverik
 Version:	6.2
 Release:	1
@@ -33,7 +33,7 @@ aplikacji używającej Maverika.
 
 %package demos
 Summary:	Maverik Demos
-Summary(pl.UTF-8):   Dema Maverika
+Summary(pl.UTF-8):	Dema Maverika
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
